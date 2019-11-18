@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block content %}
+<H5>{{ object.name }}</H5>            
+<a href='{{ object.get_edit_url }}'>Edit</a>
+<a href='{{ object.get_delete_url }}'>Delete</a>
+{% endblock %}

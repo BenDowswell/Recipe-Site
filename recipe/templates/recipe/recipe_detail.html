@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">{{ object.name }}</h1>
+    <p class="lead">{{ object.description }}</p>
+  </div>
+</div>
+
+    <div>
+  		<p>
+	  		<h5 >Category:  {{ object.food_category }}</h5>
+	    	<p><h5>Prep time: {{ object.prep_time }}</h5></p>
+	    	<p><h5>Cooking time: {{ object.cook_time }}</h5></p>
+	    </p>
+	</div>
+    <br>
+    <br>
+    <h2>Ingredients:</h2>
+    <br>
+    <br>
+	<div>
+		<table class="table">
+			<thead class="thead-dark">
+			
+				<tr>
+					<th>Ingredients</th>
+					<th>Quantity</th>
+					<th>Measurement</th>
+                </tr>
+            </thead>
+                {% for field in Quantity %}
+				<tr>
+			  			<td><h5>{{ field.Ingredients }}</h5></td>
+			  			<td><h5>{{ field.quantity }}</h5></td>
+			  			<td><h5>{{ field.measurement }}</h5></td>
+		    	</tr>
+		    	{% endfor %}
+    	</table>
+    </div>
+    <br>
+    <br>
+    <h2>Steps:</h2>
+    <br>
+    <br>
+	<div>
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th>Step Number</th>
+					<th>Description</th>
+                </tr>
+          	</thead>
+                {% for field in Steps %}
+				<tr>
+			  			<td><h5>{{ field.step_number }}</h5></td>
+			  			<td><h5>{{ field.step_description }}</h5></td>
+			  			
+		    	</tr>
+		    	{% endfor %}
+    	</table>
+    </div>    
+	<a href='{{ object.get_edit_url }}'>Edit</a>
+	<a href='{{ object.get_delete_url }}'>Delete</a>
+	    
+{% endblock %}
+
+
+
+
+
